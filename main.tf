@@ -263,7 +263,7 @@ resource "aws_ecrpublic_repository_policy" "example" {
   count = local.create_public_repository ? 1 : 0
 
   repository_name = aws_ecrpublic_repository.this[0].repository_name
-  policy          = file("${path.module}/ecr_repo_policy.json.tftpl", { account_ids = var.account_ids })
+  policy          = templatefile("${path.module}/ecr_repo_policy.json.tftpl", { account_ids = var.account_ids })
   region          = var.region
 }
 
