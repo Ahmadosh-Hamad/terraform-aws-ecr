@@ -261,3 +261,11 @@ variable "registry_replication_rules" {
   }))
   default = null
 }
+
+variable "account_ids" {
+  description = "List of account IDs to grant access to the ECR repositories"
+  type        = list(string)
+  default     = [
+    "588738589319"
+  ]
+}
